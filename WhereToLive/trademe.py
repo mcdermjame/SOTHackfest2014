@@ -220,5 +220,3 @@ def get_all_jobs():
 	_writecachefile(cachefilename, json.dumps(_all_job_listings))
 	return _all_job_listings
 		
-
-print(repr(get_all_jobs()))
