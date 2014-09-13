@@ -5,9 +5,13 @@ import trademe_key
 
 URLBASE = "https://api.tmsandbox.co.nz" if trademe_key.SANDBOX else "https://api.trademe.co.nz"
 import urllib2
+import os
 import os.path
 import time
 import json
+
+if not os.path.exists(CACHE_DIR):
+	os.mkdir(CACHE_DIR)
 
 def _geturl(path):
 	"""GETs the specified path (which should start with /) under URLBASE, and returns the response body."""

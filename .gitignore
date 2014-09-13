@@ -8,3 +8,5 @@ venv/*
 /WhereToLive/trademecache
 /WhereToLive/trademe_key.py
 /trademecache
+/WhereToLive/censusdata/*.csv
+/WhereToLive/censusdata/*.zip

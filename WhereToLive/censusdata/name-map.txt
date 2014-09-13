@@ -1,0 +1,77 @@
+Central Otago,Central Otago District
+Porirua,Porirua City
+Waimate,Waimate District
+Gore,Gore District
+Hauraki Gulf Islands,Auckland
+Waitomo,Waitomo District
+Christchurch City,Christchurch City
+Carterton,Carterton District
+Waikato,Waikato District
+Lower Hutt,Lower Hutt City
+Gisborne,Gisborne District
+South Wairarapa,South Wairarapa District
+Western Bay Of Plenty,Western Bay of Plenty District
+Timaru,Timaru District
+Kawerau,Kawerau District
+Waipa,Waipa District
+Horowhenua,Horowhenua District
+Ruapehu,Ruapehu District
+Ashburton,Ashburton District
+New Plymouth,New Plymouth District
+Wanganui,Wanganui District
+Waitakere City,Auckland
+Dunedin,Dunedin City
+South Taranaki,South Taranaki District
+Marlborough,Marlborough District
+Queenstown-Lakes,Queenstown-Lakes District
+Wairoa,Wairoa District
+Tasman,Tasman District
+Central Hawke's Bay,Central Hawke's Bay District
+Hamilton,Hamilton City
+Napier,Napier City
+Nelson,Nelson City
+Kaikoura,Kaikoura District
+South Waikato,South Waikato District
+Hastings,Hastings District
+Clutha,Clutha District
+Buller,Buller District
+Manawatu,Manawatu District
+Westland,Westland District
+Selwyn,Selwyn District
+Auckland City,Auckland
+Palmerston North,Palmerston North City
+Hurunui,Hurunui District
+Rangitikei,Rangitikei District
+Upper Hutt,Upper Hutt City
+Waimakariri,Waimakariri District
+Rotorua,Rotorua District
+Hauraki,Hauraki District
+Tauranga,Tauranga City
+Tararua,Tararua District
+Kapiti Coast,Kapiti Coast District
+Franklin,Auckland
+Invercargill,Invercargill City
+Rodney,Auckland
+Masterton,Masterton District
+Far North,Far North District
+Whakatane,Whakatane District
+Whangarei,Whangarei District
+Grey,Grey District
+Matamata-Piako,Matamata-Piako District
+Otorohanga,Otorohanga District
+Southland,Southland District
+Papakura,Auckland
+Waiheke Island,Auckland
+Thames-Coromandel,Thames-Coromandel District
+Manukau City,Auckland
+Kaipara,Kaipara District
+Taupo,Taupo District
+Mackenzie,Mackenzie District
+Stratford,Stratford District
+Wellington,Wellington City
+Opotiki,Opotiki District
+Waitaki,Waitaki District
+North Shore City,Auckland
+Banks Peninsula,Christchurch City
+Catlins,Clutha District
+South Otago,Clutha District
