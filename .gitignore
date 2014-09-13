@@ -1,0 +1,5 @@
+*.pyc
+scrapbk/local_settings.py
+
+.elasticbeanstalk/
+venv/*
