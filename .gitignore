@@ -1,5 +1,7 @@
 *.pyc
 scrapbk/local_settings.py
 
-.elasticbeanstalk/
 venv/*
+
+*.db
+*.sqlite3
