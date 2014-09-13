@@ -1,4 +1,4 @@
-CACHE_TIME = 3600 # in seconds
+CACHE_TIME = 36000 # in seconds
 CACHE_DIR = "trademecache"
 
 import trademe_key
@@ -11,6 +11,7 @@ import json
 
 def _geturl(path):
 	"""GETs the specified path (which should start with /) under URLBASE, and returns the response body."""
+	
 	headers = {}
 	if trademe_key.OAUTH_TOKEN != "":
 		headers['Authorization'] = 'OAuth oauth_consumer_key="'+trademe_key.CONSUMER_KEY+'", oauth_token="'+trademe_key.OAUTH_TOKEN+'", oauth_signature_method="PLAINTEXT", oauth_signature="'+trademe_key.CONSUMER_SECRET+'&'+trademe_key.OAUTH_TOKEN_SECRET+'"'
@@ -127,6 +128,97 @@ def get_job_categories():
 			fix_subcategories(category)
 		
 	return _job_categories
-	
 
-print(repr(get_job_categories()))
+_all_job_listings = None
+def get_all_jobs():
+	"""
+	Returns all current job listings from TradeMe.
+	This is a list of dicts. Example format:
+		[
+			{
+				"ListingId": 779675047,
+				"Title": "Parts & Service Administrator",
+				"Category": "5000-5155-5156-",
+				"StartPrice": 0,
+				"StartDate": "\/Date(1410500710680)\/",
+				"EndDate": "\/Date(1413089110680)\/",
+				"ListingLength": None,
+				"IsFeatured": True,
+				"AsAt": "\/Date(1410576662698)\/",
+				"CategoryPath": "\/Trade-Me-Jobs\/Office-administration\/Administration",
+				"PictureHref": "https:\/\/trademe.tmcdn.co.nz\/photoserver\/thumb\/332531164.jpg",
+				"Region": "Northland",
+				"Suburb": "Whangarei",
+				"NoteDate": "\/Date(0)\/",
+				"ReserveState": 3,
+				"IsClassified": True,
+				"PriceDisplay": "",
+				"District": "Whangarei",
+				"JobType": "FT",
+				"PayBenefits": None,
+				"Reference": "1741075",
+				"ApplicationDetails": None,
+				"IsWorkPermitRequired": True,
+				"Instructions": "Annette Hayes, Human Resources Co-Ordinator \u000d\u000aKeith Andrews Trucks\u000d\u000aEmail: hr@keithandrews.co.nz\u000d\u000aPhone: 09 430 3919\u000d\u000a\u000d\u000aApplications close: 26th September 2014",
+				"Listed": None,
+				"Keywords": None,
+				"JobCategory": None,
+				"JobSubcategory": None,
+				"Company": "Keith Andrews Trucks",
+				"JobLocation": "Northland,Whangarei",
+				"ContractLength": "PER",
+				"PayType": "Salary",
+				"JobPackId": "14074",
+				"Body": "We are a well established, locally owned and operated company with a successful history with Fuso Truck & Bus franchise.",
+				"Agency": {
+					"Id": 8286,
+					"Name": "Keith Andrews Trucks",
+					"Logo": "https:\/\/trademe.tmcdn.co.nz\/tm\/property\/agent_logos\/4812061-2.jpg",
+					"Type": 1024,
+					"Agents": [
+						{
+							"FullName":"",
+							"FirstName":""
+						}
+					],
+					"IsJobAgency":True
+				},
+				"JobApplicationDetails": {
+					"OnlineApplicationType": 1,
+					"ContactName": "Annette Hayes",
+					"PhoneNumber": "09 4303919",
+					"ApplyViaTradeMe": "http:\/\/www.trademe.co.nz\/Browse\/Jobs\/ApplyOnline.aspx?mode=apply_online&referenceId=779675047&sellerId=4812061"
+				}
+			}
+		]
+	"""
+	global _all_job_listings
+	if _all_job_listings != None:
+		return _all_job_listings
+
+	cachefilename = "jobs.json"
+
+	if _checkcachefile(cachefilename):
+		_all_job_listings = json.loads(_readcachefile(cachefilename))
+		return _all_job_listings
+
+	def get_job_page(page_number):
+		return json.loads(_geturl("/v1/Search/Jobs.json?photo_size=Thumbnail&sort_order=Default&rows=500&page="+str(page_number)))
+	
+	page_number = 1
+	jobs_list = []
+	while True:
+		page_data = get_job_page(page_number)
+		if page_data['PageSize'] == 0:
+			break
+		print('Page: ', page_data['Page'], ' page size: ', page_data['PageSize'], ' total size: ', page_data['TotalCount'])
+		jobs_list += page_data['List']
+		page_number += 1
+	print('Downloaded '+str(page_number)+' pages of jobs')
+	
+	_all_job_listings = jobs_list
+	_writecachefile(cachefilename, json.dumps(_all_job_listings))
+	return _all_job_listings
+		
+
+print(repr(get_all_jobs()))
