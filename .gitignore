@@ -7,3 +7,4 @@ venv/*
 *.sqlite3
 /WhereToLive/trademecache
 /WhereToLive/trademe_key.py
+/trademecache
