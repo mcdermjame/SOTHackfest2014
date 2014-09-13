@@ -1,0 +1,11 @@
+# Copy this file as trademe_key.py and fill in your data here.
+# See http://developer.trademe.co.nz/api-overview/registering-an-application/ to get a key and secret.
+
+CONSUMER_KEY=""
+CONSUMER_SECRET=""
+
+# If not set, requests won't be authenticated as any user.
+OAUTH_TOKEN=""
+OAUTH_TOKEN_SECRET=""
+
+SANDBOX = True
