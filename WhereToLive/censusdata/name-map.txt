@@ -2,7 +2,6 @@ Central Otago,Central Otago District
 Porirua,Porirua City
 Waimate,Waimate District
 Gore,Gore District
-Hauraki Gulf Islands,Auckland
 Waitomo,Waitomo District
 Christchurch City,Christchurch City
 Carterton,Carterton District
@@ -19,7 +18,6 @@ Ruapehu,Ruapehu District
 Ashburton,Ashburton District
 New Plymouth,New Plymouth District
 Wanganui,Wanganui District
-Waitakere City,Auckland
 Dunedin,Dunedin City
 South Taranaki,South Taranaki District
 Marlborough,Marlborough District
@@ -49,9 +47,7 @@ Hauraki,Hauraki District
 Tauranga,Tauranga City
 Tararua,Tararua District
 Kapiti Coast,Kapiti Coast District
-Franklin,Auckland
 Invercargill,Invercargill City
-Rodney,Auckland
 Masterton,Masterton District
 Far North,Far North District
 Whakatane,Whakatane District
@@ -60,10 +56,7 @@ Grey,Grey District
 Matamata-Piako,Matamata-Piako District
 Otorohanga,Otorohanga District
 Southland,Southland District
-Papakura,Auckland
-Waiheke Island,Auckland
 Thames-Coromandel,Thames-Coromandel District
-Manukau City,Auckland
 Kaipara,Kaipara District
 Taupo,Taupo District
 Mackenzie,Mackenzie District
@@ -71,7 +64,3 @@ Stratford,Stratford District
 Wellington,Wellington City
 Opotiki,Opotiki District
 Waitaki,Waitaki District
-North Shore City,Auckland
-Banks Peninsula,Christchurch City
-Catlins,Clutha District
-South Otago,Clutha District

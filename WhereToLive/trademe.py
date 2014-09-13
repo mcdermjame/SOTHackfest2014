@@ -133,13 +133,29 @@ def get_job_categories():
 		
 	return _job_categories
 
+def _get_listing_locations(listings):
+	for listing in listings:
+		if listing["Region"] == "Auckland":
+			loc = "Auckland"
+		else:
+			loc = listing["District"]
+		if loc == "Banks Peninsula":
+			loc = "Christchurch"
+		if loc == "Catlins" or loc == "South Otago":
+			loc = "Clutha"
+		listing["OurLocation"] = loc
+
 _all_job_listings = None
 def get_all_jobs():
 	"""
 	Returns all current job listings from TradeMe.
-	This is a list of dicts. Example format:
+	This is a list of dicts.
+	Note: The "OurLocation" key is the location as it is counted by the WhereToLive application.
+		  This location matches up with other data, while the "District" value may not.
+	Example format:
 		[
 			{
+				"OurLocation": "Whangarei",
 				"ListingId": 779675047,
 				"Title": "Parts & Service Administrator",
 				"Category": "5000-5155-5156-",
@@ -204,6 +220,7 @@ def get_all_jobs():
 
 	if _checkcachefile(cachefilename):
 		_all_job_listings = json.loads(_readcachefile(cachefilename))
+		_get_listing_locations(_all_job_listings)
 		return _all_job_listings
 
 	def get_job_page(page_number):
@@ -222,5 +239,6 @@ def get_all_jobs():
 	
 	_all_job_listings = jobs_list
 	_writecachefile(cachefilename, json.dumps(_all_job_listings))
+	_get_listing_locations(_all_job_listings)
 	return _all_job_listings
 		
